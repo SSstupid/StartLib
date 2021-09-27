@@ -1,0 +1,10 @@
+C:\Users\rlawo\source\repos\StartLib\StartLib\bin\Debug\StartLib.dll
+C:\Users\rlawo\source\repos\StartLib\StartLib\bin\Debug\StartLib.pdb
+C:\Users\rlawo\source\repos\StartLib\StartLib\bin\Debug\Microsoft.Analytics.Interfaces.dll
+C:\Users\rlawo\source\repos\StartLib\StartLib\bin\Debug\Microsoft.Analytics.Interfaces.Streaming.dll
+C:\Users\rlawo\source\repos\StartLib\StartLib\bin\Debug\Microsoft.Analytics.Types.dll
+C:\Users\rlawo\source\repos\StartLib\StartLib\obj\Debug\StartLib.csproj.CoreCompileInputs.cache
+C:\Users\rlawo\source\repos\StartLib\StartLib\obj\Debug\StartLib.csproj.CopyComplete
+C:\Users\rlawo\source\repos\StartLib\StartLib\obj\Debug\StartLib.dll
+C:\Users\rlawo\source\repos\StartLib\StartLib\obj\Debug\StartLib.pdb
+C:\Users\rlawo\source\repos\StartLib\StartLib\obj\Debug\StartLib.csproj.AssemblyReference.cache
