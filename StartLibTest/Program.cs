@@ -14,7 +14,6 @@ namespace StartLibTest
         {
             string contents = "Hello there, <br />This is Ryan.";
 
-            //Function 사용
             EmailManager email = new EmailManager("smtp.com", 25, "id", "password");
             email.From = "sender@test.com";
             email.To.Add("receiver@test.com");
@@ -22,12 +21,9 @@ namespace StartLibTest
             email.Body = contents;
             email.Send();
 
-            //email.To.Clear(); 받는 사람 제거
+            EmailManager.Send("receiver@test.com", "Hi...", contents); 
 
-            //함수 사용
-            EmailManager.Send("receiver@test.com", "Hi...", contents);  // from이 없는 경우 defalut value
-
-            EmailManager.Send("from@test.com", "receiver@test.com", "Hi...", contents);     //cc,bcc 제외
+            EmailManager.Send("from@test.com", "receiver@test.com", "Hi...", contents); 
 
             EmailManager.Send("from@test.com", "receiver@test.com", "Hi...", contents, "cc@test.com", "bcc@test.com");      //cc,bcc 포함
 
@@ -75,7 +71,8 @@ namespace StartLibTest
 
         }
     }
-    public static class ExtensionText // 확장매서드 static으로 선언해야함
+
+    public static class ExtensionText
     {
         public static void WriteConsole(this LogManager log, string data)
         {

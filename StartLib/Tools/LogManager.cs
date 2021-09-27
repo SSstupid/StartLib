@@ -19,7 +19,6 @@ namespace StartLib.Tools
             _path = path;
             _SetLogPath(logType, prefix, postfix);
         }
-        // prefix 날짜앞에 붙이는 글 postfix 뒤에 붙이는 말
         public LogManager(string prefix, string postfix)
             : this(Path.Combine(Application.Root, "Log"), LogType.Daily, prefix, postfix)
         { 
@@ -28,9 +27,7 @@ namespace StartLib.Tools
         public LogManager()
             : this(Path.Combine(Application.Root, "Log"), LogType.Daily, null, null)
         {
-            //경로가 없는 경우 실행자 경로그대로 Log생성후 저장
         }
-        //생성자 2개인 이유 => 옵션을 둘려고 (특이사항)
         #endregion
 
         #region Methods
@@ -69,9 +66,9 @@ namespace StartLib.Tools
 
         public void Write(string data)
         {
-            try //로그를 찍는 부분에서 인셉션??이 발생하면 무시(로그로인한 버그발생 방지)
+            try 
             {
-                using (StreamWriter writer = new StreamWriter(_path, true)) //true ==> not override 단지 이어서 기록함
+                using (StreamWriter writer = new StreamWriter(_path, true))
                 {
                     writer.Write(data);
                 }
@@ -79,8 +76,6 @@ namespace StartLib.Tools
             catch (Exception ex)
             { }
         }
-        //파일이 없는 경우 생성 
-        //usning => {}안에서 동작하고 끝나면 자동으로 닫아줌(무한대기 방지??)
         public void WriteLine(string data)
         {
             try 
@@ -95,5 +90,5 @@ namespace StartLib.Tools
         }
         #endregion
     }
-    //무궁무진하지만 보통 시간체크하는데 쓰임
+
 }

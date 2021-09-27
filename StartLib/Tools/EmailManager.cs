@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Mail;
 using System.Net;
-using System.Configuration; // 어셈블리에서 참조 추가해야함
+using System.Configuration;
 
 namespace StartLib.Tools
 {
@@ -22,13 +22,12 @@ namespace StartLib.Tools
             _MailMessage = new MailMessage();
             _MailMessage.IsBodyHtml = true;
             _MailMessage.Priority = MailPriority.Normal;
-            //_MailMessage.Attachments.Add(new Attachment(파일경로_path));
         }
 
         #region Function
-        public string From     //From만 노출시키고 string으로 받기 
+        public string From    
         {
-            get { return _MailMessage.From == null ? String.Empty : _MailMessage.From.Address; }        //null이면 empty값 return 아니면 Address
+            get { return _MailMessage.From == null ? String.Empty : _MailMessage.From.Address; }
             set { _MailMessage.From = new MailAddress(value); }
         }
 
@@ -63,8 +62,6 @@ namespace StartLib.Tools
                 throw new ArgumentNullException("Sender is empty.");
             if (String.IsNullOrEmpty(to))
                 throw new ArgumentNullException("To is empty.");
-            // 변경되지 않을 값들을 App.config에 저장했음
-            // string sender = ConfigurationManager.AppSettings["SMTPSender"]; from으로 받기 때문에 대체함.
 
             string smtpHost = ConfigurationManager.AppSettings["SMTPHost"];
             int smtpPort = 0;
@@ -81,33 +78,31 @@ namespace StartLib.Tools
 
             MailMessage mailMsg = new MailMessage();
             mailMsg.From = new MailAddress(from);
-            mailMsg.To.Add(to);     // string으로 받기
+            mailMsg.To.Add(to);    
 
-            if (!String.IsNullOrEmpty(cc))  //참조
+            if (!String.IsNullOrEmpty(cc))  
                 mailMsg.CC.Add(cc);
-            if (!String.IsNullOrEmpty(bcc)) //숨은참조
+            if (!String.IsNullOrEmpty(bcc)) 
                 mailMsg.Bcc.Add(bcc);
 
             mailMsg.Subject = subject;
-            mailMsg.IsBodyHtml = true;   // text, html로 보낼것인가
+            mailMsg.IsBodyHtml = true; 
             mailMsg.Body = contents;
-            mailMsg.Priority = MailPriority.Normal;     // Low ~ High 메일 중요도 설정
+            mailMsg.Priority = MailPriority.Normal; 
 
             SmtpClient smtpClient = new SmtpClient();
-            smtpClient.Credentials = new NetworkCredential();   //인증서
-            smtpClient.Host = smtpHost;     //받는자?
-            smtpClient.Port = smtpPort;     //받는자?
+            smtpClient.Credentials = new NetworkCredential();  
+            smtpClient.Host = smtpHost;   
+            smtpClient.Port = smtpPort;  
             smtpClient.Send(mailMsg);
-
-            //mailMsg.To.Add(new MailAddress(to));
         }
 
-        public static void Send(string from, string to, string subject, string contents)// cc, bcc 없는 경우
+        public static void Send(string from, string to, string subject, string contents)
         {
             Send(from, to, subject, contents, null, null);
         }
 
-        public static void Send(string to, string subject, string contents) //from이 없는 경우
+        public static void Send(string to, string subject, string contents)
         {
             string sender = ConfigurationManager.AppSettings["SMTPSender"];
             Send(sender, to, subject, contents);
