@@ -1,0 +1,10 @@
+C:\Users\rlawo\source\repos\StartLib\StartLibTest\bin\Debug\StartLibTest.exe.config
+C:\Users\rlawo\source\repos\StartLib\StartLibTest\bin\Debug\StartLibTest.exe
+C:\Users\rlawo\source\repos\StartLib\StartLibTest\bin\Debug\StartLibTest.pdb
+C:\Users\rlawo\source\repos\StartLib\StartLibTest\bin\Debug\StartLib.dll
+C:\Users\rlawo\source\repos\StartLib\StartLibTest\bin\Debug\StartLib.pdb
+C:\Users\rlawo\source\repos\StartLib\StartLibTest\obj\Debug\StartLibTest.csproj.CoreCompileInputs.cache
+C:\Users\rlawo\source\repos\StartLib\StartLibTest\obj\Debug\StartLibTest.csproj.CopyComplete
+C:\Users\rlawo\source\repos\StartLib\StartLibTest\obj\Debug\StartLibTest.exe
+C:\Users\rlawo\source\repos\StartLib\StartLibTest\obj\Debug\StartLibTest.pdb
+C:\Users\rlawo\source\repos\StartLib\StartLibTest\obj\Debug\StartLibTest.csproj.AssemblyReference.cache
